@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="BasicBean" class="springlearning.BasicBean">
+		<property name="name" value="Lucp" />
+		<property name="injected" ref="InjectedBean" />
+	</bean>
+	
+	<bean id="InjectedBean" class="springlearning.Injected">
+		<property name="list">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<value>Hello</value>
+			</list>
+		</property>
+		<property name="linkedList">
+			<bean class="org.springframework.beans.factory.config.ListFactoryBean">
+				<property name="targetListClass">
+					<value>java.util.LinkedList</value>
+				</property>
+				<property name="sourceList">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+</beans>

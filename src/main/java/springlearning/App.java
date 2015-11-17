@@ -7,10 +7,11 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"SetterConfig.xml"});
 
-		HelloWorld obj = (HelloWorld) context.getBean("helloBean");
+		BasicBean obj = (BasicBean) context.getBean("BasicBean");
 		obj.printHello();
+		obj.sayInjected();
 
 	}
 

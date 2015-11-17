@@ -3,8 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="helloBean" class="springlearning.HelloWorld">
-		<property name="name" value="Lucp" />
+	<bean id="BasicBean" class="springlearning.BasicBean">
+		<constructor-arg type="java.lang.String"><value>Lucp</value></constructor-arg>
+		<constructor-arg type="springlearning.Injected"><ref bean="Injected"/></constructor-arg>
 	</bean>
+	
+	<bean id="Injected" class="springlearning.Injected" />
 
 </beans>
